@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FORMA — Modern Real Estate</title>
+  <meta name="description" content="FORMA — modern homes, considered spaces, exceptional addresses.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-logo">FORMA<span>.</span></div>
+    <div class="loader-progress">
+      <span></span>
+    </div>
+    <small>REAL ESTATE / 2026</small>
+  </div>
+
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+
+    <a href="#home" class="brand">
+      <strong>FORMA<span>.</span></strong>
+      <small>REAL ESTATE</small>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#properties">Properties</a>
+      <a href="#approach">Our Approach</a>
+      <a href="#neighborhoods">Neighborhoods</a>
+      <a href="#journal">Journal</a>
+    </nav>
+
+    <a href="#contact" class="header-button">
+      Work With Us
+      <span>↗</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <i></i>
+      <i></i>
+    </button>
+
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+
+        <div class="hero-topline">
+          <span>
+            <i></i>
+            MUMBAI / INDIA
+          </span>
+
+          <span>SCROLL TO EXPLORE</span>
+        </div>
+
+        <h1>
+          FIND A PLACE
+          <em>WORTH LIVING.</em>
+        </h1>
+
+        <div class="hero-bottom">
+
+          <p>
+            Exceptional homes for people who believe
+            where you live should feel as considered
+            as how you live.
+          </p>
+
+          <a href="#properties" class="hero-circle">
+            <span>Explore<br>properties</span>
+            <b>↓</b>
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hero-location">
+        <span>19° 04' N</span>
+        <span>72° 52' E</span>
+      </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+    <section class="search-section">
+
+      <div class="search-heading">
+        <span>01</span>
+        <p>FIND YOUR NEXT ADDRESS</p>
+      </div>
+
+      <form class="property-search" id="propertySearch">
+
+        <label>
+          <span>LOCATION</span>
+          <select id="location">
+            <option value="all">Any location</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="pune">Pune</option>
+            <option value="goa">Goa</option>
+          </select>
+        </label>
+
+        <label>
+          <span>PROPERTY TYPE</span>
+          <select id="propertyType">
+            <option value="all">Any type</option>
+            <option value="apartment">Apartment</option>
+            <option value="villa">Villa</option>
+            <option value="penthouse">Penthouse</option>
+          </select>
+        </label>
+
+        <label>
+          <span>PRICE</span>
+          <select id="price">
+            <option value="all">Any budget</option>
+            <option value="under2">Under ₹2 Cr</option>
+            <option value="2to5">₹2 — ₹5 Cr</option>
+            <option value="above5">₹5 Cr+</option>
+          </select>
+        </label>
+
+        <button type="submit">
+          Search
+          <span>↗</span>
+        </button>
+
+      </form>
+
+      <p class="search-result" id="searchResult"></p>
+
+    </section>
+
+
+    <!-- FEATURED PROPERTIES -->
+    <section class="properties section" id="properties">
+
+      <div class="section-head">
+
+        <div class="section-index">
+          <span>02</span>
+          FEATURED PROPERTIES
+        </div>
+
+        <div>
+          <p class="eyebrow">SELECTED ADDRESSES</p>
+
+          <h2>
+            SPACES WITH
+            <em>CHARACTER.</em>
+          </h2>
+        </div>
+
+      </div>
+
+
+      <div class="property-grid">
+
+        <!-- PROPERTY 1 -->
+        <article
+          class="property-card property-featured"
+          data-location="mumbai"
+          data-type="penthouse"
+          data-price="above5"
+        >
+
+          <div class="property-image image-one">
+
+            <span class="property-number">01 / 04</span>
+
+            <div class="property-tag">
+              FEATURED
+            </div>
+
+            <a href="#contact" class="property-arrow">↗</a>
+
+            <div class="property-caption">
+              <small>WORLI / MUMBAI</small>
+              <h3>The Meridian Penthouse</h3>
+            </div>
+
+          </div>
+
+          <div class="property-info">
+
+            <div>
+              <strong>₹12.8 Cr</strong>
+              <span>4 Bed · 5 Bath · 4,800 sq ft</span>
+            </div>
+
+            <p>
+              A panoramic penthouse overlooking the
+              Arabian Sea.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- PROPERTY 2 -->
+        <article
+          class="property-card"
+          data-location="pune"
+          data-type="villa"
+          data-price="2to5"
+        >
+
+          <div class="property-image image-two">
+
+            <span class="property-number">02 / 04</span>
+
+            <a href="#contact" class="property-arrow">↗</a>
+
+            <div class="property-caption">
+              <small>KOREGAON PARK / PUNE</small>
+              <h3>Casa Verde</h3>
+            </div>
+
+          </div>
+
+          <div class="property-info">
+
+            <div>
+              <strong>₹4.2 Cr</strong>
+              <span>4 Bed · 4 Bath · 3,600 sq ft</span>
+            </div>
+
+            <p>
+              Contemporary architecture wrapped
+              around a private garden.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- PROPERTY 3 -->
+        <article
+          class="property-card"
+          data-location="goa"
+          data-type="villa"
+          data-price="above5"
+        >
+
+          <div class="property-image image-three">
+
+            <span class="property-number">03 / 04</span>
+
+            <a href="#contact" class="property-arrow">↗</a>
+
+            <div class="property-caption">
+              <small>ASSAGAO / GOA</small>
+              <h3>Casa Nira</h3>
+            </div>
+
+          </div>
+
+          <div class="property-info">
+
+            <div>
+              <strong>₹7.6 Cr</strong>
+              <span>5 Bed · 6 Bath · 5,200 sq ft</span>
+            </div>
+
+            <p>
+              A tropical modern retreat designed
+              for long weekends.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- PROPERTY 4 -->
+        <article
+          class="property-card"
+          data-location="mumbai"
+          data-type="apartment"
+          data-price="2to5"
+        >
+
+          <div class="property-image image-four">
+
+            <span class="property-number">04 / 04</span>
+
+            <a href="#contact" class="property-arrow">↗</a>
+
+            <div class="property-caption">
+              <small>BANDRA / MUMBAI</small>
+              <h3>House No. 17</h3>
+            </div>
+
+          </div>
+
+          <div class="property-info">
+
+            <div>
+              <strong>₹3.9 Cr</strong>
+              <span>3 Bed · 3 Bath · 2,450 sq ft</span>
+            </div>
+
+            <p>
+              Quiet urban living in the heart
+              of Bandra.
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+      <div class="center-link">
+        <a href="#properties" class="outline-button">
+          View all properties
+          <span>↗</span>
+        </a>
+      </div>
+
+    </section>
+
+
+    <!-- APPROACH -->
+    <section class="approach section" id="approach">
+
+      <div class="approach-visual">
+
+        <div class="approach-image"></div>
+
+        <div class="image-stamp">
+          <strong>F</strong>
+          <span>FORMA<br>EST. 2026</span>
+        </div>
+
+      </div>
+
+      <div class="approach-copy">
+
+        <div class="section-index">
+          <span>03</span>
+          OUR APPROACH
+        </div>
+
+        <p class="eyebrow">MORE THAN PROPERTY</p>
+
+        <h2>
+          WE DON'T
+          <em>SELL SPACE.</em>
+          WE FIND
+          <span>HOME.</span>
+        </h2>
+
+        <p class="body-copy">
+          Property is personal. That's why we approach
+          every search differently — listening first,
+          understanding what matters, and finding spaces
+          that fit the life behind the brief.
+        </p>
+
+        <div class="approach-stats">
+
+          <div>
+            <strong>48</strong>
+            <span>ACTIVE<br>LISTINGS</span>
+          </div>
+
+          <div>
+            <strong>12</strong>
+            <span>CITIES<br>REACHED</span>
+          </div>
+
+          <div>
+            <strong>94%</strong>
+            <span>CLIENT<br>REFERRALS</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- NEIGHBORHOODS -->
+    <section class="neighborhoods section" id="neighborhoods">
+
+      <div class="section-head">
+
+        <div class="section-index">
+          <span>04</span>
+          NEIGHBORHOODS
+        </div>
+
+        <div>
+          <p class="eyebrow">KNOW THE ADDRESS</p>
+
+          <h2>
+            LIVE WHERE
+            <em>IT MATTERS.</em>
+          </h2>
+        </div>
+
+      </div>
+
+
+      <div class="neighborhood-grid">
+
+        <article class="neighborhood active">
+          <div class="neighborhood-bg bg-bandra"></div>
+          <div class="neighborhood-overlay"></div>
+
+          <div class="neighborhood-content">
+            <span>01</span>
+            <div>
+              <small>MUMBAI</small>
+              <h3>Bandra</h3>
+              <p>Culture · Coast · Character</p>
+            </div>
+            <b>↗</b>
+          </div>
+        </article>
+
+
+        <article class="neighborhood">
+          <div class="neighborhood-bg bg-kp"></div>
+          <div class="neighborhood-overlay"></div>
+
+          <div class="neighborhood-content">
+            <span>02</span>
+            <div>
+              <small>PUNE</small>
+              <h3>Koregaon Park</h3>
+              <p>Green · Social · Refined</p>
+            </div>
+            <b>↗</b>
+          </div>
+        </article>
+
+
+        <article class="neighborhood">
+          <div class="neighborhood-bg bg-goa"></div>
+          <div class="neighborhood-overlay"></div>
+
+          <div class="neighborhood-content">
+            <span>03</span>
+            <div>
+              <small>GOA</small>
+              <h3>Assagao</h3>
+              <p>Tropical · Slow · Private</p>
+            </div>
+            <b>↗</b>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- JOURNAL -->
+    <section class="journal section" id="journal">
+
+      <div class="section-head">
+
+        <div class="section-index">
+          <span>05</span>
+          THE JOURNAL
+        </div>
+
+        <div>
+          <p class="eyebrow">IDEAS / PLACES / LIVING</p>
+
+          <h2>
+            THE WAY WE
+            <em>SEE HOME.</em>
+          </h2>
+        </div>
+
+      </div>
+
+
+      <div class="journal-grid">
+
+        <article class="journal-card journal-main">
+
+          <div class="journal-image journal-image-one"></div>
+
+          <div class="journal-meta">
+            <span>01 — DESIGN</span>
+            <span>08.08.26</span>
+          </div>
+
+          <h3>
+            Why architecture
+            changes the way
+            we live.
+          </h3>
+
+          <a href="#contact">Read story ↗</a>
+
+        </article>
+
+
+        <article class="journal-card">
+
+          <div class="journal-image journal-image-two"></div>
+
+          <div class="journal-meta">
+            <span>02 — GUIDE</span>
+            <span>02.08.26</span>
+          </div>
+
+          <h3>
+            A local's guide
+            to Bandra.
+          </h3>
+
+          <a href="#contact">Read story ↗</a>
+
+        </article>
+
+
+        <article class="journal-card">
+
+          <div class="journal-image journal-image-three"></div>
+
+          <div class="journal-meta">
+            <span>03 — LIVING</span>
+            <span>27.07.26</span>
+          </div>
+
+          <h3>
+            Making a house
+            feel like home.
+          </h3>
+
+          <a href="#contact">Read story ↗</a>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="contact" id="contact">
+
+      <div class="contact-bg"></div>
+      <div class="contact-overlay"></div>
+
+      <div class="contact-content">
+
+        <p class="eyebrow">LET'S FIND YOUR PLACE</p>
+
+        <h2>
+          YOUR NEXT
+          <em>ADDRESS.</em>
+        </h2>
+
+        <a href="mailto:hello@forma.example" class="contact-button">
+          hello@forma.example
+          <span>↗</span>
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="footer-brand">
+      <strong>FORMA<span>.</span></strong>
+      <small>REAL ESTATE</small>
+    </div>
+
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#properties">Properties</a>
+      <a href="#approach">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-right">
+      <span>© 2026 FORMA</span>
+      <span>MUMBAI / INDIA</span>
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+
