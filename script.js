@@ -1,31 +1,44 @@
-/* =========================================
-   FORMA REAL ESTATE
-   V1 INTERACTIONS
-========================================= */
+/* ==========================================
+   MONUMENT REAL ESTATE
+   V2 JAVASCRIPT
+========================================== */
 
 
 /* LOADER */
 
 window.addEventListener("load", () => {
 
-  const loader =
-    document.getElementById("loader");
-
   setTimeout(() => {
-    loader.classList.add("hidden");
-  }, 1450);
+
+    document
+      .getElementById("loader")
+      .classList.add("hide");
+
+  }, 1700);
 
 });
 
 
-/* HEADER */
+/* ELEMENTS */
 
 const header =
   document.getElementById("header");
 
+const menuBtn =
+  document.getElementById("menuBtn");
+
+const mobileMenu =
+  document.getElementById("mobileMenu");
+
+const mobileClose =
+  document.getElementById("mobileClose");
+
+
+/* HEADER */
+
 function updateHeader() {
 
-  if (window.scrollY > 55) {
+  if (window.scrollY > 50) {
     header.classList.add("scrolled");
   } else {
     header.classList.remove("scrolled");
@@ -44,31 +57,34 @@ updateHeader();
 
 /* MOBILE MENU */
 
-const menuToggle =
-  document.getElementById("menuToggle");
+function openMenu() {
 
-const nav =
-  document.getElementById("nav");
+  mobileMenu.classList.add("open");
 
-function closeMenu() {
-
-  menuToggle.classList.remove("active");
-  nav.classList.remove("active");
-  document.body.classList.remove("menu-open");
+  document.body.classList.add("lock");
 
 }
 
-menuToggle.addEventListener("click", () => {
+function closeMenu() {
 
-  menuToggle.classList.toggle("active");
-  nav.classList.toggle("active");
-  document.body.classList.toggle("menu-open");
+  mobileMenu.classList.remove("open");
 
-});
+  document.body.classList.remove("lock");
 
+}
+
+menuBtn.addEventListener(
+  "click",
+  openMenu
+);
+
+mobileClose.addEventListener(
+  "click",
+  closeMenu
+);
 
 document
-  .querySelectorAll(".nav a")
+  .querySelectorAll(".mobile-menu a")
   .forEach(link => {
 
     link.addEventListener(
@@ -79,41 +95,216 @@ document
   });
 
 
-/* SMOOTH SCROLL */
+/* PROPERTY DATA */
+
+const properties = {
+
+  cliff: {
+
+    title: "The Cliff House",
+
+    price: "₹8.4 Cr",
+
+    image: "property-1",
+
+    description:
+      "A contemporary coastal residence designed around open views, natural stone and generous outdoor living.",
+
+    area: "4,800 SQ FT",
+
+    beds: "4 BEDROOMS",
+
+    baths: "5 BATHROOMS",
+
+    type: "PRIVATE VILLA"
+
+  },
+
+  skyline: {
+
+    title: "Skyline 47",
+
+    price: "₹6.8 Cr",
+
+    image: "property-2",
+
+    description:
+      "A refined city residence overlooking Mumbai's skyline, balancing quiet interiors with an unmistakable urban address.",
+
+    area: "2,950 SQ FT",
+
+    beds: "3 BEDROOMS",
+
+    baths: "4 BATHROOMS",
+
+    type: "CITY APARTMENT"
+
+  },
+
+  courtyard: {
+
+    title: "The Courtyard Villa",
+
+    price: "₹11.2 Cr",
+
+    image: "property-3",
+
+    description:
+      "A private Goan retreat built around a central courtyard, tropical landscape and slow outdoor living.",
+
+    area: "6,200 SQ FT",
+
+    beds: "5 BEDROOMS",
+
+    baths: "6 BATHROOMS",
+
+    type: "PRIVATE VILLA"
+
+  },
+
+  minimal: {
+
+    title: "Casa Minimal",
+
+    price: "₹4.9 Cr",
+
+    image: "property-4",
+
+    description:
+      "A calm architectural residence in Pune with clean lines, generous proportions and carefully considered interiors.",
+
+    area: "3,600 SQ FT",
+
+    beds: "4 BEDROOMS",
+
+    baths: "4 BATHROOMS",
+
+    type: "CITY RESIDENCE"
+
+  },
+
+  estate: {
+
+    title: "Estate No. 08",
+
+    price: "₹5.6 Cr",
+
+    image: "property-5",
+
+    description:
+      "A rare 1.8-acre parcel surrounded by hills, mature trees and complete privacy — ready for a singular residence.",
+
+    area: "1.8 ACRES",
+
+    beds: "PRIVATE LAND",
+
+    baths: "PRIVATE ROAD",
+
+    type: "ESTATE LAND"
+
+  }
+
+};
+
+
+/* PROPERTY MODAL */
+
+const propertyModal =
+  document.getElementById("propertyModal");
+
+const propertyClose =
+  document.getElementById("propertyClose");
+
+const modalImage =
+  document.getElementById("modalImage");
+
+const modalTitle =
+  document.getElementById("modalTitle");
+
+const modalPrice =
+  document.getElementById("modalPrice");
+
+const modalDescription =
+  document.getElementById("modalDescription");
+
+const modalArea =
+  document.getElementById("modalArea");
+
+const modalBeds =
+  document.getElementById("modalBeds");
+
+const modalBaths =
+  document.getElementById("modalBaths");
+
+const modalType =
+  document.getElementById("modalType");
+
+
+let currentProperty = "";
+
+
+function openProperty(key) {
+
+  const property =
+    properties[key];
+
+  if (!property) return;
+
+  currentProperty = key;
+
+  modalImage.className =
+    `modal-image ${property.image}`;
+
+  modalTitle.textContent =
+    property.title;
+
+  modalPrice.textContent =
+    property.price;
+
+  modalDescription.textContent =
+    property.description;
+
+  modalArea.textContent =
+    property.area;
+
+  modalBeds.textContent =
+    property.beds;
+
+  modalBaths.textContent =
+    property.baths;
+
+  modalType.textContent =
+    property.type;
+
+  propertyModal.classList.add("open");
+
+  document.body.classList.add("lock");
+
+}
+
+
+function closeProperty() {
+
+  propertyModal.classList.remove("open");
+
+  document.body.classList.remove("lock");
+
+}
+
 
 document
-  .querySelectorAll('a[href^="#"]')
-  .forEach(link => {
+  .querySelectorAll(".view-property")
+  .forEach(button => {
 
-    link.addEventListener(
+    button.addEventListener(
       "click",
       event => {
 
-        const id =
-          link.getAttribute("href");
+        event.stopPropagation();
 
-        if (!id || id === "#") {
-          return;
-        }
-
-        const target =
-          document.querySelector(id);
-
-        if (!target) {
-          return;
-        }
-
-        event.preventDefault();
-
-        const targetTop =
-          target.getBoundingClientRect().top +
-          window.scrollY -
-          header.offsetHeight;
-
-        window.scrollTo({
-          top: targetTop,
-          behavior: "smooth"
-        });
+        openProperty(
+          button.dataset.property
+        );
 
       }
     );
@@ -121,337 +312,413 @@ document
   });
 
 
-/* PROPERTY SEARCH */
+propertyClose.addEventListener(
+  "click",
+  closeProperty
+);
 
-const propertySearch =
-  document.getElementById("propertySearch");
 
-const searchResult =
-  document.getElementById("searchResult");
+propertyModal.addEventListener(
+  "click",
+  event => {
 
-const locationSelect =
-  document.getElementById("location");
+    if (
+      event.target === propertyModal
+    ) {
 
-const typeSelect =
-  document.getElementById("propertyType");
+      closeProperty();
 
-const priceSelect =
-  document.getElementById("price");
+    }
+
+  }
+);
+
+
+/* PROPERTY FILTERS */
+
+const filters =
+  document.querySelectorAll(".filter");
 
 const propertyCards =
-  [...document.querySelectorAll(".property-card")];
+  document.querySelectorAll(".property-card");
 
 
-propertySearch.addEventListener(
+filters.forEach(filter => {
+
+  filter.addEventListener(
+    "click",
+    () => {
+
+      filters.forEach(item =>
+        item.classList.remove("active")
+      );
+
+      filter.classList.add("active");
+
+      const selected =
+        filter.dataset.filter;
+
+
+      propertyCards.forEach(card => {
+
+        const category =
+          card.dataset.category;
+
+        if (
+          selected === "all" ||
+          category === selected
+        ) {
+
+          card.classList.remove(
+            "hidden"
+          );
+
+        } else {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+
+      });
+
+    }
+  );
+
+});
+
+
+/* ENQUIRY MODAL */
+
+const enquiryModal =
+  document.getElementById(
+    "enquiryModal"
+  );
+
+const openEnquiry =
+  document.getElementById(
+    "openEnquiry"
+  );
+
+const heroExplore =
+  document.getElementById(
+    "heroExplore"
+  );
+
+const ctaEnquiry =
+  document.getElementById(
+    "ctaEnquiry"
+  );
+
+const modalEnquire =
+  document.getElementById(
+    "modalEnquire"
+  );
+
+const enquiryClose =
+  document.getElementById(
+    "enquiryClose"
+  );
+
+
+function openEnquiryModal() {
+
+  closeProperty();
+
+  enquiryModal.classList.add("open");
+
+  document.body.classList.add("lock");
+
+}
+
+
+function closeEnquiry() {
+
+  enquiryModal.classList.remove("open");
+
+  document.body.classList.remove("lock");
+
+}
+
+
+openEnquiry.addEventListener(
+  "click",
+  openEnquiryModal
+);
+
+ctaEnquiry.addEventListener(
+  "click",
+  openEnquiryModal
+);
+
+
+/* HERO EXPLORE */
+
+heroExplore.addEventListener(
+  "click",
+  () => {
+
+    document
+      .getElementById("properties")
+      .scrollIntoView({
+        behavior: "smooth"
+      });
+
+  }
+);
+
+
+/* MODAL ENQUIRE */
+
+modalEnquire.addEventListener(
+  "click",
+  () => {
+
+    closeProperty();
+
+    openEnquiryModal();
+
+  }
+);
+
+
+enquiryClose.addEventListener(
+  "click",
+  closeEnquiry
+);
+
+
+enquiryModal.addEventListener(
+  "click",
+  event => {
+
+    if (
+      event.target === enquiryModal
+    ) {
+
+      closeEnquiry();
+
+    }
+
+  }
+);
+
+
+/* ENQUIRY FORM */
+
+const enquiryForm =
+  document.getElementById(
+    "enquiryForm"
+  );
+
+const formMessage =
+  document.getElementById(
+    "formMessage"
+  );
+
+
+enquiryForm.addEventListener(
   "submit",
   event => {
 
     event.preventDefault();
 
-    const location =
-      locationSelect.value;
 
-    const type =
-      typeSelect.value;
-
-    const price =
-      priceSelect.value;
+    const name =
+      document
+        .getElementById("name")
+        .value
+        .trim();
 
 
-    let matches = 0;
+    const phone =
+      document
+        .getElementById("phone")
+        .value
+        .trim();
 
 
-    propertyCards.forEach(card => {
+    if (!name || !phone) {
 
-      const locationMatch =
-        location === "all" ||
-        card.dataset.location === location;
+      formMessage.textContent =
+        "Please complete your details.";
 
-      const typeMatch =
-        type === "all" ||
-        card.dataset.type === type;
+      return;
 
-      const priceMatch =
-        price === "all" ||
-        card.dataset.price === price;
-
-      const match =
-        locationMatch &&
-        typeMatch &&
-        priceMatch;
-
-      card.style.display =
-        match ? "" : "none";
-
-      if (match) {
-        matches++;
-      }
-
-    });
+    }
 
 
-    searchResult.textContent =
-      matches === 0
-        ? "No matching properties found. Try adjusting your search."
-        : `${matches} ${matches === 1 ? "property" : "properties"} match your search.`;
+    formMessage.textContent =
+      "Thank you. Your enquiry has been received.";
+
+
+    enquiryForm.reset();
+
+
+    setTimeout(() => {
+
+      formMessage.textContent =
+        "Demo enquiry complete — a real project can connect this form to a CRM or backend.";
+
+    }, 1800);
 
   }
 );
 
 
-/* RESET SEARCH WHEN USER RETURNS TO ALL */
+/* COUNTERS */
 
-[
-  locationSelect,
-  typeSelect,
-  priceSelect
-].forEach(select => {
+const counters =
+  document.querySelectorAll(".counter");
 
-  select.addEventListener(
-    "change",
-    () => {
-
-      if (
-        locationSelect.value === "all" &&
-        typeSelect.value === "all" &&
-        priceSelect.value === "all"
-      ) {
-
-        propertyCards.forEach(card => {
-          card.style.display = "";
-        });
-
-        searchResult.textContent = "";
-
-      }
-
-    }
-  );
-
-});
+let countersStarted = false;
 
 
-/* PROPERTY HOVER TILT */
+function startCounters() {
 
-propertyCards.forEach(card => {
+  if (countersStarted) return;
 
-  const image =
-    card.querySelector(".property-image");
+  const stats =
+    document.querySelector(".stats");
 
-  card.addEventListener(
-    "mousemove",
-    event => {
+  if (!stats) return;
 
-      if (window.innerWidth <= 900) {
-        return;
-      }
+  const rect =
+    stats.getBoundingClientRect();
 
-      const rect =
-        card.getBoundingClientRect();
+  if (
+    rect.top <
+    window.innerHeight * .85
+  ) {
 
-      const x =
-        ((event.clientX - rect.left) / rect.width) - .5;
-
-      const y =
-        ((event.clientY - rect.top) / rect.height) - .5;
-
-      image.style.transform =
-        `perspective(1100px)
-         rotateX(${y * -1.2}deg)
-         rotateY(${x * 1.2}deg)`;
-
-    }
-  );
-
-  card.addEventListener(
-    "mouseleave",
-    () => {
-      image.style.transform = "";
-    }
-  );
-
-});
+    countersStarted = true;
 
 
-/* NEIGHBORHOOD HOVER */
+    counters.forEach(counter => {
 
-document
-  .querySelectorAll(".neighborhood")
-  .forEach(card => {
-
-    card.addEventListener(
-      "mouseenter",
-      () => {
-
-        document
-          .querySelectorAll(".neighborhood")
-          .forEach(item => {
-            item.classList.remove("active");
-          });
-
-        card.classList.add("active");
-
-      }
-    );
-
-  });
-
-
-/* SCROLL REVEAL */
-
-const revealElements =
-  document.querySelectorAll(
-    ".section-head, .property-card, .approach-visual, .approach-copy, .neighborhood, .journal-card, .contact-content"
-  );
-
-
-revealElements.forEach(element => {
-
-  element.style.opacity = "0";
-
-  element.style.transform =
-    "translateY(30px)";
-
-  element.style.transition =
-    "opacity .85s ease, transform .85s cubic-bezier(.2,.7,.2,1)";
-
-});
-
-
-const revealObserver =
-  new IntersectionObserver(
-    entries => {
-
-      entries.forEach(entry => {
-
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        entry.target.style.opacity = "1";
-
-        entry.target.style.transform =
-          "translateY(0)";
-
-        revealObserver.unobserve(
-          entry.target
+      const target =
+        Number(
+          counter.dataset.target
         );
 
-      });
+      let current = 0;
 
-    },
-    {
-      threshold: .08
-    }
-  );
+      const duration = 1100;
 
-
-revealElements.forEach(
-  element => revealObserver.observe(element)
-);
+      const startTime =
+        performance.now();
 
 
-/* ACTIVE NAV */
+      function animate(time) {
 
-const navLinks =
-  document.querySelectorAll(".nav a");
-
-const sections =
-  document.querySelectorAll(
-    "main section[id]"
-  );
-
-
-const navObserver =
-  new IntersectionObserver(
-    entries => {
-
-      entries.forEach(entry => {
-
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        navLinks.forEach(link => {
-          link.classList.remove("active");
-        });
-
-        const active =
-          document.querySelector(
-            `.nav a[href="#${entry.target.id}"]`
+        const progress =
+          Math.min(
+            (time - startTime) /
+            duration,
+            1
           );
 
-        if (active) {
-          active.classList.add("active");
+
+        current =
+          Math.floor(
+            progress * target
+          );
+
+
+        counter.textContent =
+          current;
+
+
+        if (progress < 1) {
+
+          requestAnimationFrame(
+            animate
+          );
+
+        } else {
+
+          counter.textContent =
+            target;
+
         }
 
-      });
-
-    },
-    {
-      rootMargin: "-35% 0px -55% 0px"
-    }
-  );
+      }
 
 
-sections.forEach(
-  section => navObserver.observe(section)
-);
+      requestAnimationFrame(
+        animate
+      );
 
+    });
 
-/* HERO PARALLAX */
-
-const heroBg =
-  document.querySelector(".hero-bg");
-
-
-if (
-  heroBg &&
-  window.innerWidth > 900
-) {
-
-  window.addEventListener(
-    "mousemove",
-    event => {
-
-      const x =
-        (event.clientX / window.innerWidth) - .5;
-
-      const y =
-        (event.clientY / window.innerHeight) - .5;
-
-      heroBg.style.transform =
-        `scale(1.08)
-         translate(${x * -6}px, ${y * -6}px)`;
-
-    }
-  );
+  }
 
 }
 
 
-/* KEYBOARD ESCAPE */
+window.addEventListener(
+  "scroll",
+  startCounters,
+  { passive: true }
+);
+
+startCounters();
+
+
+/* ESCAPE */
 
 document.addEventListener(
   "keydown",
   event => {
 
-    if (event.key === "Escape") {
+    if (
+      event.key === "Escape"
+    ) {
+
       closeMenu();
+      closeProperty();
+      closeEnquiry();
+
     }
 
   }
+);
+
+
+/* HERO PARALLAX */
+
+const heroImage =
+  document.querySelector(".hero-image");
+
+
+window.addEventListener(
+  "scroll",
+  () => {
+
+    if (
+      window.scrollY <
+      window.innerHeight
+    ) {
+
+      heroImage.style.transform =
+        `translateY(${window.scrollY * .1}px) scale(1.02)`;
+
+    }
+
+  },
+  { passive: true }
 );
 
 
 /* CONSOLE */
 
 console.log(
-  "%c FORMA. ",
-  "background:#b9d85a;color:#171817;padding:8px 14px;font-size:16px;font-weight:bold;"
+  "%c MONUMENT REAL ESTATE ",
+  "background:#151513;color:#d1c8b8;padding:10px 15px;font-size:14px;"
 );
 
 console.log(
-  "Modern Real Estate — Portfolio Demo"
+  "Portfolio Demo — Real Estate V2"
 );
 
